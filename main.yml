@@ -13,4 +13,4 @@
       yum:
         name: nginx
         state: latest
-        download_only: true
+        download_only: yes
