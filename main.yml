@@ -12,5 +12,5 @@
       poll: 0
     - name: Install nginx
        yum:
-       name: nginx
-       state: latest
+        name: nginx
+        state: latest
