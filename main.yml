@@ -10,7 +10,4 @@
       shell: java -cp /tmp/ echoserver &
       async: 10
       poll: 0
-    - name: Install Nginx
-      package:
-      name: nginx
-      state: latest
+   
