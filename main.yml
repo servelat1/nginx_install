@@ -11,6 +11,6 @@
       async: 10
       poll: 0
     - name: Install Nginx
-02    package:
-03      name: nginx
-04      state: latest
+        package:
+        name: nginx
+        state: latest
