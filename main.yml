@@ -2,7 +2,7 @@
 - hosts: all
   tasks:
     - name: try copy java file  
-      command: cp https://github.com/servelat1/nginx_install/raw/main/echoserver.class /tmp creates=dest
+      command: cp https://github.com/servelat1/nginx_install.git/echoserver.class /tmp creates=dest
     - name: Run the java program
       shell: java test
     - name: ensure nginx is at the latest version
