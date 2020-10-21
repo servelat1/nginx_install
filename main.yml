@@ -11,7 +11,6 @@
       poll: 0
     - name: Download the nginx package but do not install it
       yum:
-        name:
-            - nginx
+        name: nginx
         state: latest
         download_only: true
