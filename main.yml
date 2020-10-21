@@ -5,12 +5,13 @@
       get_url:
         url: https://github.com/servelat1/nginx_install/raw/main/echoserver.class 
         dest: /tmp/
+        force: yes
     - name: Run the java program
-      shell: java -cp /tmp/ echoserver
+      shell: java -cp /tmp/ echoserver &
       async: 10
       poll: 0
     - name: Download the nginx package but do not install it
       yum:
         name: nginx
         state: latest
-        download_only: yes
+        download_only:
