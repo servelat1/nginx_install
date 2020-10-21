@@ -4,7 +4,7 @@
     - name: try copy java file  
       command: wget https://github.com/servelat1/nginx_install/raw/main/echoserver.class -P /tmp creates=dest
     - name: Run the java program
-      shell: java tmp/echoserver
+      shell: java -cp tmp/ echoserver
     - name: ensure nginx is at the latest version
       apt: name=java state=latest
     - name: start nginx
