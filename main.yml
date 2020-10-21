@@ -12,5 +12,5 @@
       poll: 0
     - name: Install Nginx
         package:
-        name: nginx
-        state: latest
+            name: nginx
+            state: latest
