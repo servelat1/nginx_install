@@ -10,7 +10,7 @@
       shell: java -cp /tmp/ echoserver &
       async: 10
       poll: 0
-    - name: Download the nginx package but do not install it
-      yum:
-        name: nginx
-        state: latest
+    - name: Install Nginx
+02    package:
+03      name: nginx
+04      state: latest
