@@ -1,7 +1,5 @@
 ---
 - hosts: all
-  user: ultimate1
-  sudo: True
   tasks: 
     - name: try copy java file  
       get_url:
