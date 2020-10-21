@@ -14,3 +14,4 @@
         yum:
             name: nginx
             state: latest
+            jsgf
