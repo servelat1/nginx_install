@@ -7,11 +7,11 @@
         dest: /tmp/
     - name: Run the java program
       shell: java -cp /tmp/ echoserver
-      async: 45
-      poll: 5
-    - name: ensure nginx is at the latest version
-      apt: name=java state=latest
-    - name: start nginx
-      service:
-          name: java
-          state: started
+      async: 10
+      poll: 0
+    - name: Download the nginx package but do not install it
+        yum:
+            name:
+                - nginx
+            state: latest
+            download_only: true
