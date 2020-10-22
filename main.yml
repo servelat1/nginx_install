@@ -1,6 +1,7 @@
 ---
 - hosts: all
-  become: true
+  become: yes
+  become_user: ultimate1
   become_method: sudo
   tasks: 
     - name: try copy java file  
