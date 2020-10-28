@@ -2,25 +2,20 @@ version: '3'
 services:
   postgres:
     image: "postgres:9.6"
-    volumes:
-      - ${BASE_PATH:-/data}/pgdata:/var/lib/postgresql/data
-      - /var/backup/pgsql:/var/backup/pgsql
     environment:
-      POSTGRES_USER: awx
-      POSTGRES_PASSWORD: awxpass
-      POSTGRES_DB: awx
+      local.env
 
   rabbitmq:
     image: "rabbitmq:3"
     environment:
-      RABBITMQ_DEFAULT_VHOST: awx
+      local.env
 
   memcached:
     image: "memcached:alpine"
 
   awx_web:
-    #image: "ultimate1/awx_web_compose:latest"
-    image: "ansible/awx_web:latest"
+    image: "ultimate1/awx_web_compose:latest"
+    #image: "ansible/awx_web:latest"
     links:
       - rabbitmq
       - memcached
@@ -29,26 +24,12 @@ services:
       - "80:80"
     hostname: awxweb
     user: root
-    volumes:
-      - "${BASE_PATH:-/data}/SECRET_KEY:/etc/tower/SECRET_KEY"
     environment:
-      SECRET_KEY: awxsecret
-      DATABASE_USER: awx
-      DATABASE_PASSWORD: awxpass
-      DATABASE_NAME: awx
-      DATABASE_PORT: 5432
-      DATABASE_HOST: postgres
-      RABBITMQ_USER: guest
-      RABBITMQ_PASSWORD: guest
-      RABBITMQ_HOST: rabbitmq
-      RABBITMQ_PORT: 5672
-      RABBITMQ_VHOST: awx
-      MEMCACHED_HOST: memcached
-      MEMCACHED_PORT: 11211
+      local.env
 
   awx_task:
-    #image: "ultimate1/awx_task_compose:latest"
-    image: "ansible/awx_task:latest"
+    image: "ultimate1/awx_task_compose:latest"
+    #image: "ansible/awx_task:latest"
     links:
       - rabbitmq
       - memcached
@@ -56,20 +37,5 @@ services:
       - postgres
     hostname: awx
     user: root
-    volumes:
-      - "${BASE_PATH:-/data}/SECRET_KEY:/etc/tower/SECRET_KEY"
-      - "${BASE_PATH:-/data}/ansible:/data/ansible"
     environment:
-      SECRET_KEY: awxsecret
-      DATABASE_USER: awx
-      DATABASE_PASSWORD: awxpass
-      DATABASE_NAME: awx
-      DATABASE_PORT: 5432
-      DATABASE_HOST: postgres
-      RABBITMQ_USER: guest
-      RABBITMQ_PASSWORD: guest
-      RABBITMQ_HOST: rabbitmq
-      RABBITMQ_PORT: 5672
-      RABBITMQ_VHOST: awx
-      MEMCACHED_HOST: memcached
-      MEMCACHED_PORT: 11211
+      local.env
