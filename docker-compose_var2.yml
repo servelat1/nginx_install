@@ -82,3 +82,7 @@ services:
       RABBITMQ_VHOST: awx
       MEMCACHED_HOST: memcached
       MEMCACHED_PORT: 11211
+volumes:
+  supervisor-socket:
+  rsyslog-socket:
+  rsyslog-config:
