@@ -2,6 +2,9 @@ version: '3'
 services:
   postgres:
     image: "postgres:9.6"
+    volumes:
+      - ${BASE_PATH:-/data}/pgdata:/var/lib/postgresql/data
+      - /var/backup/pgsql:/var/backup/pgsql
     environment:
       POSTGRES_USER: awx
       POSTGRES_PASSWORD: awxpass
@@ -26,6 +29,8 @@ services:
       - "80:80"
     hostname: awxweb
     user: root
+    volumes:
+      - "${BASE_PATH:-/data}/SECRET_KEY:/etc/tower/SECRET_KEY"
     environment:
       SECRET_KEY: awxsecret
       DATABASE_USER: awx
@@ -51,6 +56,9 @@ services:
       - postgres
     hostname: awx
     user: root
+     volumes:
+      - "${BASE_PATH:-/data}/SECRET_KEY:/etc/tower/SECRET_KEY"
+      - "${BASE_PATH:-/data}/ansible:/data/ansible"
     environment:
       SECRET_KEY: awxsecret
       DATABASE_USER: awx
