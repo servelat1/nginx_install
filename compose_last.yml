@@ -38,12 +38,8 @@ services:
       - rabbitmq
       - memcached
       - postgres
-    labels:
-      - traefik.enable=${TRAEFIK_ENABLE:-true}
-      - traefik.http.routers.awx.entrypoints=websecure
-      - traefik.http.routers.awx.tls.certresolver=${TRAEFIK_CERT_RESOLVER:-default}
-      - traefik.http.routers.awx.tls=true
-      - traefik.http.routers.awx.rule=${AWX_URL_CONFIG:-Host(`awx.museum.naturalis.nl`)}
+    ports:
+      - 80:80
     volumes:
       - "${BASE_PATH:-/data}/SECRET_KEY:/etc/tower/SECRET_KEY"
     hostname: awxweb
