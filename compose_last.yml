@@ -39,7 +39,7 @@ services:
       - memcached
       - postgres
     ports:
-      - 80:80
+      - 8051:80
     volumes:
       - "${BASE_PATH:-/data}/SECRET_KEY:/etc/tower/SECRET_KEY"
     hostname: awxweb
