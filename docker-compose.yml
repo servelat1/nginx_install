@@ -6,7 +6,7 @@ services:
       local.env
 
   rabbitmq:
-    image: "ultimate1/awx_rabbitmq:latest"
+    image: "ultimate1/awx_rabbit:latest"
     env_file:
       local.env
 
