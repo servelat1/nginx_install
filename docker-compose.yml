@@ -38,4 +38,4 @@ services:
     env_file:
       local.env
     volumes:
-      -  ~/nginx_install/:/var/lib/awx/projects
+      -  ~/nginx_install:/var/lib/awx/projects/
