@@ -1,17 +1,17 @@
 version: '3'
 services:
   postgres:
-    image: "postgres:9.6"
+    image: "ultimate1/awx_postgres:latest"
     env_file:
       local.env
 
   rabbitmq:
-    image: "rabbitmq:3"
+    image: "ultimate1/awx_rabbitmq:latest"
     env_file:
       local.env
 
   memcached:
-    image: "memcached:alpine"
+    image: "ultimate1/awx_memcached:latest"
 
   awx_web:
     image: "ultimate1/awx_web_compose:latest"
