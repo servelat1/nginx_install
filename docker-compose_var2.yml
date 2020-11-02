@@ -15,7 +15,6 @@ services:
 
   awx_web:
     image: "ultimate1/awx_web_compose:latest"
-    #image: "ansible/awx_web:latest"
     links:
       - rabbitmq
       - memcached
@@ -29,7 +28,6 @@ services:
 
   awx_task:
     image: "ultimate1/awx_task_compose:latest"
-    #image: "ansible/awx_task:latest"
     links:
       - rabbitmq
       - memcached
