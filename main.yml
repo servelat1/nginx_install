@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: copy Java and install nginx
+  hosts: all
   become: yes
   tasks: 
     - name: try copy java file  
