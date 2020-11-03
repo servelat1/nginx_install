@@ -25,6 +25,8 @@ services:
     user: root
     env_file:
       local.env
+    volumes:
+      -  ~/nginx_install:/var/lib/awx/projects/install
 
   awx_task:
     image: "ultimate1/awx_task_compose:latest"
